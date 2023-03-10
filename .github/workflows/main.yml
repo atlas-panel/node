@@ -12,10 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get the output time
-        run: echo ${{ secrets.PROJECTKEY }} > sonar-project.properties
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: createing properties file
+        run: echo ${{ secrets.PROJECTKEY }} > sonar-project.properties
       - uses: sonarsource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
