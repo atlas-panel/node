@@ -13,7 +13,7 @@ jobs:
     environment: sonar
     steps:
       - name: Get the output time
-        run: echo "${env.PROJECTKEY}" > sonar-project.properties
+        run: echo "${env.PROJECTKEY}"
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
