@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: adding key file
-        run: echo ${{ secrets.PROJECTKEY }} > sonar-project.properties
+        run: name=$(basename -s .git `git config --get remote.origin.url`) ; a="sonar.projeckKey" ; key=$(echo ${a}=${name}) ;echo $key  > sonar-project.properties
         
       - uses: sonarsource/sonarqube-scan-action@master
         env:
