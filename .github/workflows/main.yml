@@ -10,7 +10,6 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    environment: sonar
     steps:
       - name: Get the output time
         run: echo ${{ secrets.PROJECTKEY }} > sonar-project.properties
